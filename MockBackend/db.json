@@ -18,6 +18,11 @@
       "id": "bee5",
       "email": "teste",
       "password": "teste"
+    },
+    {
+      "id": "8b05",
+      "email": "ssdfg@ssdfg.com",
+      "password": "ssdfg"
     }
   ],
   "places": [
