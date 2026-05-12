@@ -1,8 +1,9 @@
 import { IsString, IsEmail, IsOptional, IsEnum, IsNumber, Min, Max, IsInt, IsUUID } from 'class-validator';
+import type { UUID } from 'crypto';
 
 export class CreateUserDTO{
     @IsUUID()
-    id: string;
+    id: UUID;
 
     @IsString()
     name: string;
@@ -21,6 +22,30 @@ export class CreateUserDTO{
 
     @IsOptional()
     profile_img: string;
+}
+
+export class UpdateUserDTO{
+    @IsOptional()
+    @IsString()
+    name?: string;
+
+    @IsOptional()
+    @IsEmail()
+    email?: string;
+
+    @IsOptional()
+    @IsString()
+    password?: string;
+
+    @IsOptional()
+    @IsNumber()
+    @IsInt()
+    @Min(1)
+    @Max(5)
+    level?: number;
+
+    @IsOptional()
+    profile_img?: string;
 }
 
 export class UserResponseDTO{

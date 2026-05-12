@@ -11,7 +11,7 @@ Backlog Técnico
     Configuração do Prisma + PostgreSQL
     Docker para ambiente local
     Modelagem de User e Room - OK
-    Hash de senha segura
+    Hash de senha segura - OK
 
 📌 CRUD de Usuário
     Rotas, serviços, repositórios
