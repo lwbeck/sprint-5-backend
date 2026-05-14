@@ -42,4 +42,12 @@ export class UserMapper {
 
         return user;
     }
+
+    public updateLevel = async (
+        user: User, 
+        level: number
+    ) : Promise<User> => {
+        user.changeLevel(level);
+        return user;
+    }
 }

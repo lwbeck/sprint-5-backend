@@ -31,4 +31,12 @@ export class RoomService {
         const updatedRoom = await this.roomMapper.updateDomain(room, roomDTO);
         return await this.roomRepository.updateRoom(id, updatedRoom);
     }
+
+    async toggleBlock(id: UUID) {
+        const room = await this.roomRepository.findById(id);
+        if (!room) return null;
+
+        room.toggleBlock();
+        return await this.roomRepository.updateRoom(id, room);
+    }
 }

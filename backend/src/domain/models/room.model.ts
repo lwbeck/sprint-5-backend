@@ -6,9 +6,11 @@ export class Room{
     private id: UUID; // Identificador único
     private description: string; // Nome da sala
     private accessLevel: number; // Nível mínimo necessário para entrar
+    private isBlocked: boolean; // Indica se a sala está bloqueada
 
-    constructor(id: UUID, description: string, accessLevel: number) {
+    constructor(id: UUID, description: string, accessLevel: number, isBlocked: boolean = false) {
         this.id = id;
+        this.isBlocked = isBlocked;
 
         if (!this.validateDescription(description)) throw new Error("Descrição inválida");
         this.description = description;
@@ -21,6 +23,7 @@ export class Room{
     getId(): UUID { return this.id; }
     getDescription(): string { return this.description; }
     getAccessLevel(): number { return this.accessLevel; }
+    getIsBlocked(): boolean { return this.isBlocked; }
     
     //Metodos de validação
     validateDescription(description: string): boolean {return description.length > 0;}
@@ -34,6 +37,9 @@ export class Room{
     changeAccessLevel(newAccessLevel: number): void {
         if (!this.validateAccessLevel(newAccessLevel)) throw new Error("Nível de acesso inválido");
         this.accessLevel = newAccessLevel;
+    }
+    toggleBlock(): void {
+        this.isBlocked = !this.isBlocked;
     }
 
 }

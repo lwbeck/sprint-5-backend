@@ -1,6 +1,5 @@
 import { Injectable } from "@nestjs/common";
 import type { UUID } from "crypto";
-import { find } from "rxjs";
 import { User } from "src/domain/models/user.model";
 
 @Injectable()
@@ -18,6 +17,10 @@ export class UserRepository {
 
     async findById(id: UUID): Promise<User | null> {
         return this.users.find(user => user.getId() === id && user.getDeletedAt() === null) || null;
+    }
+
+    async findByEmail(email: string): Promise<User | null> {
+        return this.users.find(user => user.getEmail() === email && user.getDeletedAt() === null) || null;
     }
 
     async update(id: UUID, user: User): Promise<User> {

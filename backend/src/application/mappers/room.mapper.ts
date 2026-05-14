@@ -8,7 +8,8 @@ export class RoomMapper {
         return new Room(
             roomDTO.id,
             roomDTO.description,
-            roomDTO.accessLevel
+            roomDTO.accessLevel,
+            roomDTO.isBlocked || false
         );
     }
 
@@ -16,7 +17,8 @@ export class RoomMapper {
         return {
             id: room.getId(),
             description: room.getDescription(),
-            accessLevel: room.getAccessLevel()
+            accessLevel: room.getAccessLevel(),
+            isBlocked: room.getIsBlocked()
         };
     }
 
@@ -27,6 +29,14 @@ export class RoomMapper {
         if (updateDTO.description) room.changeDescription(updateDTO.description);
         if (updateDTO.accessLevel) room.changeAccessLevel(updateDTO.accessLevel);
 
+        return room;
+    }
+
+    public toggleBlock = async (
+        room: Room, 
+        isBlocked: boolean
+    ) : Promise<Room> => {
+        if (isBlocked !== room.getIsBlocked()) room.toggleBlock();
         return room;
     }
 }

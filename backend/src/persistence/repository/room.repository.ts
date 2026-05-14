@@ -26,5 +26,13 @@ export class RoomRepository {
         return room;
     }
 
+    async toggleBlock(id: UUID): Promise<Room | null> {
+        const room = await this.findById(id);
+        if (!room) return null;
+
+        room.toggleBlock();
+        return await this.updateRoom(id, room);
+    }
+
 }
 

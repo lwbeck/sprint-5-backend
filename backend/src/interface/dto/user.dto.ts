@@ -48,6 +48,19 @@ export class UpdateUserDTO{
     profile_img?: string;
 }
 
+export class UpdateLevelDTO{
+    @IsNumber()
+    @IsInt()
+    @Min(1)
+    @Max(5)
+    level: number;
+}
+
+export class DeleteUserDTO{
+    @IsNumber()
+    deletedAt: number;
+}
+
 export class UserResponseDTO{
     id: string;
     name: string;
