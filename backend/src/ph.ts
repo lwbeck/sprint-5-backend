@@ -96,5 +96,5 @@ Controle Obrigatório por Nível (Role)
     Senhas hasheadas com segurança
     Testes/documentação se possível
 
-
+postgres://4a710b291b285a8fbb2b6d7cb8fbba22828093be6fdeffb04c9bc047b17c5b10:sk_xWd7WTPCAHSI21B0dtL6Z@db.prisma.io:5432/postgres?sslmode=require
     */

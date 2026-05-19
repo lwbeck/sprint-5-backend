@@ -3,25 +3,25 @@ import type { UUID } from 'crypto';
 
 export class CreateUserDTO{
     @IsUUID()
-    id: UUID;
+    id!: UUID;
 
     @IsString()
-    name: string;
+    name!: string;
 
     @IsEmail()
-    email: string;
+    email!: string;
 
     @IsString()
-    password: string;
+    password!: string;
 
     @IsNumber()
     @IsInt()
     @Min(1)
     @Max(5)
-    level: number;
+    level!: number;
 
     @IsOptional()
-    profile_img: string;
+    profile_img!: string;
 }
 
 export class UpdateUserDTO{
@@ -53,20 +53,20 @@ export class UpdateLevelDTO{
     @IsInt()
     @Min(1)
     @Max(5)
-    level: number;
+    level!: number;
 }
 
 export class DeleteUserDTO{
     @IsNumber()
-    deletedAt: number;
+    deletedAt!: number;
 }
 
 export class UserResponseDTO{
-    id: string;
-    name: string;
-    email: string;
-    level: number;
-    profile_img: string;
-    createdAt: number;
-    deletedAt: number | null;
+    id!: string;
+    name!: string;
+    email!: string;
+    level!: number;
+    profile_img!: string;
+    createdAt!: number;
+    deletedAt!: number | null;
 }

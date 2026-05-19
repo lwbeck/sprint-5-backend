@@ -37,7 +37,6 @@ export class RoomController{
     @Levels(5)
     @Patch(':id')
     toggleBlock(@Param('id') id: UUID) {
-        return `This action toggles block status of a room by id:
+        return `This action toggles block status of a room by id: ${id}`;
     }
 }
-

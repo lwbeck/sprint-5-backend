@@ -4,6 +4,7 @@ import { CreateUserDTO, UpdateLevelDTO, UpdateUserDTO } from "../dto/user.dto";
 import { LevelsGuard } from "src/guard/auth/levels.guard";
 import { JwtAuthGuard } from "src/guard/auth/jwt-auth.guard";
 import { Levels } from "src/guard/auth/levels.decorator";
+import { UserService } from "src/application/services/user.service";
 
 @Controller('users')
 export class UserController{
