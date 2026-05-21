@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { CreateRoomDTO } from "src/interface/dto/room.dto";
-import { RoomRepository } from "src/persistence/repository/room.repository";
+import { CreateRoomDTO } from "../../interface/dto/room.dto";
+import { RoomRepository } from "../../persistence/repository/room.repository";
 import { RoomMapper } from "../mappers/room.mapper";
 import type { UUID } from "crypto";
 

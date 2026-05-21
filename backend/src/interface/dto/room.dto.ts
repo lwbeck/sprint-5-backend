@@ -1,43 +1,22 @@
-import { IsString, IsNumber, Min, Max, IsInt, IsUUID, IsOptional, IsBoolean } from 'class-validator';
 import type { UUID } from 'crypto';
 
-export class CreateRoomDTO{
-    @IsUUID()
+export interface CreateRoomDTO{
     id: UUID;
-
-    @IsString()
     description: string;
-
-    @IsNumber()
-    @IsInt()
-    @Min(1)
-    @Max(5)
     accessLevel: number;
-
-    @IsOptional()
-    @IsBoolean()
     isBlocked: boolean;
 }
 
-export class UpdateRoomDTO{
-    @IsOptional()
-    @IsString()
+export interface UpdateRoomDTO{
     description?: string;
-
-    @IsOptional()
-    @IsNumber()
-    @IsInt()
-    @Min(1)
-    @Max(5)
     accessLevel?: number;
 }
 
-export class ToggleBlockDTO{
-    @IsBoolean()
+export interface ToggleBlockDTO{
     isBlocked: boolean;
 }
 
-export class RoomResponseDTO{
+export interface RoomResponseDTO{
     id: string;
     description: string;
     accessLevel: number;

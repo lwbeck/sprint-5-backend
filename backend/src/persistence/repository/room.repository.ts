@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import type { UUID } from "crypto";
-import { Room } from "src/domain/models/room.model";
+import { Room } from "../../domain/models/room.model";
 
 @Injectable()
 export class RoomRepository {

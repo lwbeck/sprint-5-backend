@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import type { UUID } from "crypto";
-import { User } from "src/domain/models/user.model";
+import { User } from "../../domain/models/user.model";
 
 @Injectable()
 export class UserRepository {
@@ -32,7 +32,9 @@ export class UserRepository {
 
     async delete(id: UUID): Promise<void> {
         const user = await this.findById(id);
-        if (user) user.delete();
+        if (user) {
+            user.delete();
+            await this.update(id, user);}
     }
 }
 

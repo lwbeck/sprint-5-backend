@@ -7,5 +7,6 @@ import { UserRepository } from './persistence/repository/user.repository';
 @Module({
     controllers: [UserController],
     providers: [UserService, UserMapper, UserRepository],
+    exports: [UserRepository],
 })
 export class UserModule {}

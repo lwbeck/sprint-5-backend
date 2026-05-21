@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { getDefaultResultOrder } from 'dns';
 
@@ -9,5 +9,10 @@ export class AppController {
   @Get("/user")
   getUser(): string{
     return "0";
+  }
+  
+  @Post("/user")
+  createUser(): string{
+    return "User created";
   }
 }

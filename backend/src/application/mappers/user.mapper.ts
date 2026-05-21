@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
-import { CreateUserDTO, UpdateUserDTO, UserResponseDTO } from "src/interface/dto/user.dto";
-import { User } from "src/domain/models/user.model";
+import { CreateUserDTO, UpdateLevelDTO, UpdateUserDTO, UserResponseDTO } from "../../interface/dto/user.dto";
+import { User } from "../../domain/models/user.model";
 
 @Injectable()
 export class UserMapper {
@@ -30,24 +30,23 @@ export class UserMapper {
         };
     }
 
-    public updateDomain = async (
-        user: User, 
-        updateDTO: UpdateUserDTO
-    ) : Promise<User> => {
+    public updateDomain = async (user: User, updateDTO: UpdateUserDTO) : Promise<User> => {
         if (updateDTO.name) user.changeName(updateDTO.name);
         if (updateDTO.email) user.changeEmail(updateDTO.email);
         if (updateDTO.password) user.changePassword(updateDTO.password);
-        if (updateDTO.level) user.changeLevel(updateDTO.level);
         if (updateDTO.profile_img) user.changeProfileImg(updateDTO.profile_img);
 
         return user;
     }
 
-    public updateLevel = async (
-        user: User, 
-        level: number
-    ) : Promise<User> => {
-        user.changeLevel(level);
+    public updateLevel = async (user: User, updateLevelDTO: UpdateLevelDTO) : Promise<User> => {
+        user.changeLevel(updateLevelDTO.level);
+
+        return user;
+    }
+
+    public deleteDomain = (user: User) : User => {
+        user.delete();
         return user;
     }
 }

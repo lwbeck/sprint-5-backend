@@ -1,8 +1,8 @@
 import { Controller, Get, Post, Put, Patch, Param, Body, UseGuards,  } from "@nestjs/common";
-import { JwtAuthGuard } from "src/guard/auth/jwt-auth.guard";
-import { Levels } from "src/guard/auth/levels.decorator";
-import { LevelsGuard } from "src/guard/auth/levels.guard";
-import { CreateRoomDTO } from "../dto/room.dto";
+import { JwtAuthGuard } from "../../guard/auth/jwt-auth.guard";
+import { Levels } from "../../guard/auth/levels.decorator";
+import { LevelsGuard } from "../../guard/auth/levels.guard";
+import type { CreateRoomDTO } from "../dto/room.dto";
 import type { UUID } from "crypto";
 
 @Controller('room')

@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
-import { CreateRoomDTO, UpdateRoomDTO, RoomResponseDTO } from "src/interface/dto/room.dto";
-import { Room } from "src/domain/models/room.model";
+import { CreateRoomDTO, UpdateRoomDTO, RoomResponseDTO } from "../../interface/dto/room.dto";
+import { Room } from "../../domain/models/room.model";
 
 @Injectable()
 export class RoomMapper {
